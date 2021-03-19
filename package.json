@@ -1,0 +1,57 @@
+{
+  "devDependencies": {
+    "next": "^10.0.9"
+  },
+  "name": "@kirbic/nextjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "pika build",
+    "semantic-release": "semantic-release",
+    "lint": "eslint ./src/**/**.ts"
+  },
+  "release": {
+    "branches": "main",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "./pkg"
+        }
+      ],
+      [
+        "semantic-release-plugin-update-version-in-files",
+        {
+          "files": [
+            "pkg/dist-src/VERSION.js",
+            "pkg/dist-types/VERSION.d.ts",
+            "pkg/*/index.js"
+          ]
+        }
+      ]
+    ]
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
+    ]
+  },
+  "dependencies": {
+    "@auth0/nextjs-auth0": "^1.2.0"
+  }
+}
