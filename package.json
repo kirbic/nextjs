@@ -1,6 +1,15 @@
 {
   "devDependencies": {
-    "next": "^10.0.9"
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "next": "^10.0.9",
+    "typescript": "^4.2.3"
   },
   "name": "@kirbic/nextjs",
   "version": "1.0.0",
@@ -11,7 +20,7 @@
   },
   "scripts": {
     "build": "pika build",
-    "semantic-release": "semantic-release",
+    "release": "semantic-release",
     "lint": "eslint ./src/**/**.ts"
   },
   "release": {
@@ -52,6 +61,13 @@
     ]
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^1.2.0"
+    "@auth0/nextjs-auth0": "^1.2.0",
+    "@coreschool/eslint-config": "^1.0.4",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.9.2",
+    "@pika/plugin-build-web": "^0.9.2",
+    "@pika/plugin-ts-standard-pkg": "^0.9.2",
+    "semantic-release": "^17.4.2",
+    "semantic-release-plugin-update-version-in-files": "^1.1.0"
   }
 }
