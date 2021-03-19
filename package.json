@@ -1,16 +1,4 @@
 {
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.18.0",
-    "@typescript-eslint/parser": "^4.18.0",
-    "eslint": "^7.22.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "next": "^10.0.9",
-    "typescript": "^4.2.3"
-  },
   "name": "@kirbic/nextjs",
   "description": "kirbic helpers for next.js",
   "version": "1.0.0",
@@ -62,7 +50,21 @@
     ]
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^1.2.0",
+    "@auth0/nextjs-auth0": "^1.2.0"
+  },
+  "peerDependencies": {
+    "next": "^10.0.9"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "typescript": "^4.2.3",
     "@coreschool/eslint-config": "^1.0.4",
     "@pika/pack": "^0.5.0",
     "@pika/plugin-build-node": "^0.9.2",
