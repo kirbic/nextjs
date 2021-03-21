@@ -25,7 +25,7 @@ process.env.AUTH0_SCOPE =
 process.env.AUDIENCE = "https://api.kirbic.com";
 
 // Set default session name
-process.env.AUTH0_SESSION_NAME = "kirbic-platform-session";
+process.env.AUTH0_SESSION_NAME = "kirbic_platform_session";
 
 export const handle_auth = handleAuth;
 export const UserProvider = Auth0UserProvider;
