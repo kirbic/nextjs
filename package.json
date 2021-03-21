@@ -57,6 +57,7 @@
     "next": "^10.0.9"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.1",
     "@coreschool/eslint-config": "^1.0.4",
     "@pika/pack": "^0.5.0",
     "@pika/plugin-build-node": "^0.9.2",

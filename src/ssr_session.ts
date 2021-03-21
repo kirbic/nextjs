@@ -25,7 +25,9 @@ export const ssr_session = async (
     const { user, accessToken, idToken } = session;
 
     // extract permissions array from token
-    const decoded_id_token: { permissions: string[] } = jwt.decode(idToken);
+    if (!idToken) throw new Error("invalid kirbic config");
+    const decoded_id_token = jwt.decode(idToken);
+    if (!decoded_id_token) throw new Error("cannot decode kirbic idToken");
 
     return {
       user: {
@@ -34,7 +36,7 @@ export const ssr_session = async (
         nickname: user.nickname,
         name: user.name,
         picture: user.picture,
-        permissions: decoded_id_token.permissions,
+        permissions: (decoded_id_token as any).permissions,
       },
       access_token: accessToken || null,
     };
