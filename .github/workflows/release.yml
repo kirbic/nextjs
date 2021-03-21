@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "12.x"
-      - run: npm install
+      - run: npm ci
       - run: yarn run build
       - run: yarn run release
         env:
