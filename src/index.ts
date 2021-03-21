@@ -21,7 +21,7 @@ process.env.AUTH0_CLIENT_SECRET = process.env.KIRBIC_CLIENT_SECRET;
 process.env.AUTH0_SCOPE =
   "openid profile access_token access_token_authz email";
 
-// Set default audiences
+// Set default audiences for kirbic api
 process.env.AUTH0_AUDIENCE = "https://api.kirbic.com";
 
 // Set default session name
