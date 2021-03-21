@@ -30,4 +30,6 @@ process.env.AUTH0_SESSION_NAME = "kirbic-platform-session";
 export const handle_auth = handleAuth;
 export const UserProvider = Auth0UserProvider;
 export const useUser = auth0useUser;
+
+// Use this to get the user in ssr
 export { getAccessToken, getSession };
