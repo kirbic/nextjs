@@ -1,4 +1,4 @@
-import { handleAuth, getAccessToken, getSession } from "@auth0/nextjs-auth0";
+import { handleAuth, getSession } from "@auth0/nextjs-auth0";
 import { UserProvider as Auth0UserProvider } from "@auth0/nextjs-auth0";
 import { useUser as auth0useUser } from "@auth0/nextjs-auth0";
 
@@ -22,7 +22,7 @@ process.env.AUTH0_SCOPE =
   "openid profile access_token access_token_authz email";
 
 // Set default audiences
-process.env.AUDIENCE = "https://api.kirbic.com";
+process.env.AUTH0_AUDIENCE = "https://api.kirbic.com";
 
 // Set default session name
 process.env.AUTH0_SESSION_NAME = "kirbic_platform_session";
@@ -30,6 +30,7 @@ process.env.AUTH0_SESSION_NAME = "kirbic_platform_session";
 export const handle_auth = handleAuth;
 export const UserProvider = Auth0UserProvider;
 export const useUser = auth0useUser;
+export * from "./ssr_session";
 
-// Use this to get the user in ssr
-export { getAccessToken, getSession };
+// Use this to get the raw session
+export { getSession };
