@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "@auth0/nextjs-auth0";
+import jwt from "jsonwebtoken";
 
 type KirbicUser = {
   user_id: string;
@@ -7,6 +8,7 @@ type KirbicUser = {
   nickname: string;
   name: string;
   picture: string;
+  permissions: string[];
 };
 
 type SSRSession = {
@@ -20,7 +22,11 @@ export const ssr_session = async (
 ): Promise<SSRSession> => {
   const session = await getSession(req, res);
   if (session) {
-    const { user } = session;
+    const { user, accessToken, idToken } = session;
+
+    // extract permissions array from token
+    const decoded_id_token: { permissions: string[] } = jwt.decode(idToken);
+
     return {
       user: {
         user_id: user.sub,
@@ -28,8 +34,9 @@ export const ssr_session = async (
         nickname: user.nickname,
         name: user.name,
         picture: user.picture,
+        permissions: decoded_id_token.permissions,
       },
-      access_token: session.access_token,
+      access_token: accessToken || null,
     };
   }
   return { user: null, access_token: null };
