@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse, NextPageContext } from "next";
 import { getSession } from "@auth0/nextjs-auth0";
 import jwt from "jsonwebtoken";
 
@@ -16,10 +16,18 @@ type SSRSession = {
   access_token: string | null;
 };
 
-export const ssr_session = async (
-  req: NextApiRequest,
-  res: NextApiResponse
-): Promise<SSRSession> => {
+type KirbicNextPageContext = Pick<NextPageContext, "req" | "res">;
+
+export const ssr_session = async ({
+  req,
+  res,
+}: KirbicNextPageContext): Promise<SSRSession> => {
+  // Running client side, no request or response in context
+  if (!req || !res) {
+    return { user: null, access_token: null };
+  }
+
+  // Server side, get session if any
   const session = await getSession(req, res);
   if (session) {
     const { user, accessToken, idToken } = session;
