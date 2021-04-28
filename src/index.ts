@@ -1,7 +1,3 @@
-import { handleAuth, getSession } from "@auth0/nextjs-auth0";
-import { UserProvider as Auth0UserProvider } from "@auth0/nextjs-auth0";
-import { useUser as auth0useUser } from "@auth0/nextjs-auth0";
-
 // Automatically set kirbic domain
 process.env.AUTH0_ISSUER_BASE_URL = "https://kirbic.eu.auth0.com";
 
@@ -26,6 +22,10 @@ process.env.AUTH0_AUDIENCE = "https://api.kirbic.com";
 
 // Set default session name
 process.env.AUTH0_SESSION_NAME = "kirbic_platform_session";
+
+import { handleAuth, getSession } from "@auth0/nextjs-auth0";
+import { UserProvider as Auth0UserProvider } from "@auth0/nextjs-auth0";
+import { useUser as auth0useUser } from "@auth0/nextjs-auth0";
 
 export const handle_auth = handleAuth;
 export const UserProvider = Auth0UserProvider;
