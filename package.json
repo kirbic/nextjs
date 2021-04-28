@@ -50,19 +50,19 @@
     ]
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^1.2.0",
+    "@auth0/nextjs-auth0": "^1.3.0",
     "jsonwebtoken": "^8.5.1"
   },
   "peerDependencies": {
     "next": "^10.0.9"
   },
   "devDependencies": {
-    "@types/jsonwebtoken": "^8.5.1",
     "@coreschool/eslint-config": "^1.0.4",
     "@pika/pack": "^0.5.0",
     "@pika/plugin-build-node": "^0.9.2",
     "@pika/plugin-build-web": "^0.9.2",
     "@pika/plugin-ts-standard-pkg": "^0.9.2",
+    "@types/jsonwebtoken": "^8.5.1",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "eslint": "^7.22.0",
